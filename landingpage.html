@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriveNow - Car Rental Made Easy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandBlue: '#75C7FB',
+                        brandDarkBlue: '#002894',
+                        brandRed: '#FF3847',
+                        bgDark: '#010A21',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        /* City skyline SVG background for hero right panel */
+        .hero-right {
+            background: linear-gradient(160deg, #4a90e2 0%, #002894 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .city-skyline {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0.18;
+        }
+        /* Dotted connector between steps */
+        .step-connector {
+            border-top: 2px dashed #93c5fd;
+            flex: 1;
+            margin-top: -2rem;
+        }
+        /* Star rating */
+        .stars { color: #f59e0b; font-size: 10px; letter-spacing: 1px; }
+        /* Phone mockup inner screen uses the uploaded screenshot */
+        .phone-screen-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 28px;
+        }
+        /* Smooth hover on nav */
+        nav a { transition: color 0.2s; }
+    </style>
+</head>
+<body class="font-sans antialiased bg-gray-50 text-gray-900 overflow-x-hidden">
+
+<!-- ════════════════════════════════════════
+     HEADER
+════════════════════════════════════════ -->
+<header class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center space-x-2">
+        <img src="logoo.png" alt="DriveNow Logo" class="h-11 w-11 object-contain">
+        <span class="text-2xl font-extrabold tracking-tight text-brandDarkBlue">DRIVE<span class="text-brandRed">NOW</span></span>
+    </div>
+    <nav class="hidden md:flex space-x-10 font-semibold text-gray-700 text-sm">
+        <a href="#hero" class="hover:text-brandDarkBlue">Home</a>
+        <a href="#how-it-works" class="hover:text-brandDarkBlue">How It Works</a>
+        <a href="#about" class="hover:text-brandDarkBlue">About Us</a>
+    </nav>
+    <button class="bg-brandDarkBlue text-white px-5 py-2.5 rounded-full font-semibold text-sm flex items-center space-x-2 hover:bg-blue-900 transition shadow-lg shadow-blue-900/20">
+        <i class="fa-solid fa-download text-xs"></i>
+        <span>Download App</span>
+    </button>
+</header>
+
+<!-- ════════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section id="hero" class="relative max-w-7xl mx-auto px-6 pt-8 pb-0 md:grid md:grid-cols-12 md:gap-0 items-stretch min-h-[580px]">
+
+    <!-- Blue curved background right half -->
+    <div class="hero-right absolute right-0 top-0 w-[55%] h-full rounded-bl-[100px] -z-10 hidden md:block">
+        <!-- SVG City Skyline -->
+        <svg class="city-skyline" viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
+            <rect x="10" y="180" width="30" height="120" fill="white"/>
+            <rect x="15" y="160" width="20" height="25" fill="white"/>
+            <rect x="50" y="150" width="40" height="150" fill="white"/>
+            <rect x="55" y="130" width="10" height="25" fill="white"/>
+            <rect x="100" y="200" width="25" height="100" fill="white"/>
+            <rect x="135" y="140" width="50" height="160" fill="white"/>
+            <rect x="140" y="120" width="15" height="25" fill="white"/>
+            <rect x="195" y="170" width="35" height="130" fill="white"/>
+            <rect x="240" y="130" width="45" height="170" fill="white"/>
+            <rect x="243" y="110" width="12" height="25" fill="white"/>
+            <rect x="295" y="190" width="30" height="110" fill="white"/>
+            <rect x="335" y="145" width="55" height="155" fill="white"/>
+            <rect x="340" y="125" width="20" height="25" fill="white"/>
+            <rect x="400" y="175" width="30" height="125" fill="white"/>
+            <rect x="440" y="155" width="40" height="145" fill="white"/>
+            <rect x="490" y="135" width="50" height="165" fill="white"/>
+            <rect x="495" y="115" width="15" height="25" fill="white"/>
+            <rect x="550" y="180" width="35" height="120" fill="white"/>
+            <rect x="595" y="150" width="45" height="150" fill="white"/>
+            <rect x="600" y="130" width="12" height="25" fill="white"/>
+            <rect x="650" y="165" width="30" height="135" fill="white"/>
+            <rect x="690" y="140" width="55" height="160" fill="white"/>
+            <rect x="700" y="120" width="18" height="25" fill="white"/>
+            <rect x="755" y="185" width="28" height="115" fill="white"/>
+            <rect x="793" y="150" width="42" height="150" fill="white"/>
+            <rect x="845" y="170" width="30" height="130" fill="white"/>
+            <rect x="885" y="145" width="15" height="155" fill="white"/>
+            <!-- Windows rows -->
+            <rect x="55" y="155" width="6" height="5" fill="#002894" opacity="0.5"/>
+            <rect x="65" y="155" width="6" height="5" fill="#002894" opacity="0.5"/>
+            <rect x="55" y="165" width="6" height="5" fill="#002894" opacity="0.5"/>
+            <rect x="65" y="165" width="6" height="5" fill="#002894" opacity="0.5"/>
+        </svg>
+
+        <!-- Dot pattern overlay -->
+        <div style="position:absolute;right:60px;top:60px;opacity:0.25;">
+            <svg width="180" height="180" viewBox="0 0 180 180">
+                <defs>
+                    <pattern id="dots" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+                        <circle cx="3" cy="3" r="2" fill="white"/>
+                    </pattern>
+                </defs>
+                <rect width="180" height="180" fill="url(#dots)"/>
+            </svg>
+        </div>
+    </div>
+
+    <!-- LEFT: Text content -->
+    <div class="md:col-span-5 space-y-5 z-10 flex flex-col justify-center pb-16 pt-4">
+        <span class="text-brandDarkBlue font-bold tracking-widest text-xs uppercase">Car Rental Made Easy</span>
+        <h1 class="text-5xl md:text-[3.4rem] font-extrabold text-brandDarkBlue leading-tight">
+            DRIVE<span class="text-brandRed">NOW</span><br>
+            <span class="text-slate-800">made User Friendly</span>
+        </h1>
+        <p class="text-gray-600 text-base max-w-sm leading-relaxed">
+            It is easy to use and convenient for the user to rent and be a renter of a car. The user that can manage their entire car rental, leave comment, and rate experience.
+        </p>
+        <div class="pt-2">
+            <button class="bg-blue-600 text-white px-7 py-3.5 rounded-full font-bold text-base flex items-center space-x-3 hover:bg-blue-700 transition shadow-lg shadow-blue-600/30 w-fit">
+                <span>Rent Now</span>
+                <span class="bg-white text-blue-600 rounded-full w-6 h-6 flex items-center justify-center">
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </span>
+            </button>
+        </div>
+        <div class="flex items-center space-x-3 pt-2">
+            <!-- App Store Link -->
+            <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" class="hover:opacity-90 transition">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" class="h-10">
+            </a>
+            <!-- Google Play Link -->
+            <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" class="hover:opacity-90 transition">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" class="h-10">
+            </a>
+        </div>
+    </div>
+
+    <!-- RIGHT: Phone mockup + Car image -->
+    <div class="md:col-span-7 relative flex items-end justify-center z-10">
+
+        <!-- Phone mockup using screenshot image -->
+        <div class="relative z-20" style="margin-bottom: -2px;">
+            <div class="bg-black rounded-[44px] p-[10px] border-[3px] border-gray-800 shadow-2xl" style="width:260px;">
+                <!-- Notch -->
+                <div class="bg-black rounded-full mx-auto mb-1" style="width:80px;height:22px;"></div>
+                <!-- Screen = uploaded phone screenshot -->
+                <div style="border-radius:30px;overflow:hidden;height:520px;">
+                    <img src="phone_screen.jpg" alt="App Screen" style="width:100%;height:100%;object-fit:cover;border-radius:30px;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Toyota RAV4 hero car image -->
+        <div class="absolute right-0 bottom-0 z-10" style="width: 58%; max-width: 420px;">
+            <img src="car_hero.png" alt="Hero Car" class="w-full object-contain drop-shadow-2xl" style="filter: drop-shadow(0 20px 40px rgba(0,40,148,0.25));">
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     FEATURES CARDS
+════════════════════════════════════════ -->
+<section class="max-w-7xl mx-auto px-6 mt-10 relative z-30">
+    <div class="bg-white rounded-3xl shadow-xl border border-gray-100 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-8 gap-6">
+
+        <div class="flex flex-col items-center text-center space-y-3 p-4">
+            <div class="w-14 h-14 bg-blue-50 text-brandDarkBlue rounded-full flex items-center justify-center text-2xl shadow-inner">
+                <i class="fa-solid fa-car"></i>
+            </div>
+            <h3 class="font-bold text-base text-slate-900">Wide Selection</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Choose from a variety of vehicles that fit your needs and style.</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center space-y-3 p-4 border-t sm:border-t-0 sm:border-l border-gray-100">
+            <div class="w-14 h-14 bg-blue-50 text-brandDarkBlue rounded-full flex items-center justify-center text-2xl shadow-inner">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3 class="font-bold text-base text-slate-900">Safe & Reliable</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">All cars are well-maintained and insured for your peace of mind.</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center space-y-3 p-4 border-t lg:border-t-0 lg:border-l border-gray-100">
+            <div class="w-14 h-14 bg-blue-50 text-brandDarkBlue rounded-full flex items-center justify-center text-2xl shadow-inner">
+                <i class="fa-solid fa-tags"></i>
+            </div>
+            <h3 class="font-bold text-base text-slate-900">Best Prices</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Get the best value with affordable rates and no hidden fees.</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center space-y-3 p-4 border-t lg:border-t-0 lg:border-l border-gray-100">
+            <div class="w-14 h-14 bg-blue-50 text-brandDarkBlue rounded-full flex items-center justify-center text-2xl shadow-inner">
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <h3 class="font-bold text-base text-slate-900">Top Rated</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Trusted by thousands of happy customers worldwide.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     HOW IT WORKS
+════════════════════════════════════════ -->
+<section id="how-it-works" class="max-w-7xl mx-auto px-6 py-20 text-center">
+    <div class="flex items-center justify-center space-x-4 mb-14">
+        <div class="h-px bg-blue-200 w-16"></div>
+        <h2 class="text-3xl font-extrabold text-slate-900">How It Works</h2>
+        <div class="h-px bg-blue-200 w-16"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-0 relative items-start">
+        <!-- Dotted lines between steps (desktop) -->
+        <div class="hidden md:block absolute top-9 left-[33%] right-[33%] border-t-2 border-dashed border-blue-300 z-0"></div>
+
+        <!-- Step 1 -->
+        <div class="flex flex-col items-center space-y-4 relative z-10 px-8">
+            <div class="w-20 h-20 bg-blue-50 text-brandDarkBlue rounded-full flex items-center justify-center text-3xl relative shadow-md">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-blue-600 text-white w-6 h-6 rounded-full text-xs flex items-center justify-center font-bold">1</span>
+            </div>
+            <h4 class="font-bold text-slate-900 pt-3 text-base">Explore and Discover</h4>
+            <p class="text-gray-500 text-sm max-w-xs">Browse available cars, compare features and prices, and find the perfect vehicle for your trip.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="flex flex-col items-center space-y-4 relative z-10 px-8 mt-12 md:mt-0">
+            <div class="w-20 h-20 bg-blue-50 text-brandDarkBlue rounded-full flex items-center justify-center text-3xl relative shadow-md">
+                <i class="fa-solid fa-hand-pointer"></i>
+                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-blue-600 text-white w-6 h-6 rounded-full text-xs flex items-center justify-center font-bold">2</span>
+            </div>
+            <h4 class="font-bold text-slate-900 pt-3 text-base">Choose a Car</h4>
+            <p class="text-gray-500 text-sm max-w-xs">Select the car that fits your needs—whether self-drive or with a driver—and confirm your booking easily.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="flex flex-col items-center space-y-4 relative z-10 px-8 mt-12 md:mt-0">
+            <div class="w-20 h-20 bg-blue-50 text-brandDarkBlue rounded-full flex items-center justify-center text-3xl relative shadow-md">
+                <i class="fa-solid fa-circle-check"></i>
+                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-blue-600 text-white w-6 h-6 rounded-full text-xs flex items-center justify-center font-bold">3</span>
+            </div>
+            <h4 class="font-bold text-slate-900 pt-3 text-base">Enjoy Your Trip</h4>
+            <p class="text-gray-500 text-sm max-w-xs">Pick up your car and travel with comfort and confidence, knowing your ride is ready and reliable.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     ABOUT US — FULL SECTION
+════════════════════════════════════════ -->
+<section id="about">
+
+    <!-- ── STATS BANNER ── -->
+    <div class="bg-brandDarkBlue py-14 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="space-y-1">
+                <div class="text-4xl font-black text-white counter" data-target="10000">0</div>
+                <p class="text-brandBlue text-xs font-bold uppercase tracking-widest">Happy Customers</p>
+            </div>
+            <div class="space-y-1">
+                <div class="text-4xl font-black text-white counter" data-target="10">0</div>
+                <p class="text-brandBlue text-xs font-bold uppercase tracking-widest">Quality Cars</p>
+            </div>
+            <div class="space-y-1">
+                <div class="text-4xl font-black text-white">99%</div>
+                <p class="text-brandBlue text-xs font-bold uppercase tracking-widest">Satisfaction Rate</p>
+            </div>
+            <div class="space-y-1">
+                <div class="text-4xl font-black text-white counter" data-target="5">0</div>
+                <p class="text-brandBlue text-xs font-bold uppercase tracking-widest">Cities Covered</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── STORY + VISUAL ── -->
+    <div class="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Left: Visual card stack -->
+        <div class="relative h-[420px] flex items-center justify-center">
+            <!-- Back card -->
+            <div class="absolute bg-blue-100 rounded-3xl w-72 h-80 rotate-6 shadow-lg" style="top:20px;left:40px;"></div>
+            <!-- Middle card -->
+            <div class="absolute bg-brandDarkBlue rounded-3xl w-72 h-80 -rotate-3 shadow-xl flex flex-col items-center justify-center p-8 space-y-4" style="top:10px;left:20px;">
+                <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center">
+                    <i class="fa-solid fa-car text-white text-3xl"></i>
+                </div>
+                <p class="text-white text-center font-semibold text-sm leading-relaxed opacity-90">Connecting renters with quality vehicles since 2023.</p>
+                <div class="flex space-x-1">
+                    <span class="w-2 h-2 bg-brandBlue rounded-full"></span>
+                    <span class="w-2 h-2 bg-white/40 rounded-full"></span>
+                    <span class="w-2 h-2 bg-white/40 rounded-full"></span>
+                </div>
+            </div>
+            <!-- Front card -->
+            <div class="absolute bg-white rounded-3xl w-64 h-44 shadow-2xl border border-gray-100 p-6 space-y-3" style="bottom:20px;right:0px;">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center">
+                        <i class="fa-solid fa-route text-brandDarkBlue"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-400 font-semibold uppercase tracking-wide">Our Mission</p>
+                        <p class="text-sm font-bold text-slate-800">Rides for everyone</p>
+                    </div>
+                </div>
+                <p class="text-gray-500 text-xs leading-relaxed">Making car rental simple, safe, and affordable for every Filipino.</p>
+                <div class="flex items-center space-x-1">
+                    <span class="text-yellow-400 text-xs">★★★★★</span>
+                    <span class="text-gray-400 text-xs font-semibold">4.9 / 5.0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Story text -->
+        <div class="space-y-6">
+            <span class="text-brandDarkBlue font-bold tracking-widest text-xs uppercase">Who We Are</span>
+            <h2 class="text-4xl font-extrabold text-slate-900 leading-tight">
+                Born to make<br>
+                <span class="text-brandDarkBlue">car rental</span> <span class="text-brandRed">simple.</span>
+            </h2>
+            <p class="text-gray-500 text-base leading-relaxed">
+                DriveNow was built with one idea in mind — that renting a car should be as easy as ordering food. We bridge the gap between car owners and everyday commuters, travelers, and businesses who need reliable wheels without the hassle.
+            </p>
+            <p class="text-gray-500 text-base leading-relaxed">
+                Our platform lets renters browse verified vehicles, book instantly, and drive with confidence. Car owners earn by listing their vehicles — it's a win for everyone on the road.
+            </p>
+            <div class="grid grid-cols-2 gap-4 pt-2">
+                <div class="bg-blue-50 rounded-2xl p-4 space-y-1">
+                    <i class="fa-solid fa-check-circle text-brandDarkBlue text-lg"></i>
+                    <p class="font-bold text-sm text-slate-800">Verified Listings</p>
+                    <p class="text-gray-500 text-xs">Every car is reviewed and approved before going live.</p>
+                </div>
+                <div class="bg-blue-50 rounded-2xl p-4 space-y-1">
+                    <i class="fa-solid fa-lock text-brandDarkBlue text-lg"></i>
+                    <p class="font-bold text-sm text-slate-800">Secure Payments</p>
+                    <p class="text-gray-500 text-xs">Cashless, safe transactions fully managed in-app.</p>
+                </div>
+                <div class="bg-blue-50 rounded-2xl p-4 space-y-1">
+                    <i class="fa-solid fa-headset text-brandDarkBlue text-lg"></i>
+                    <p class="font-bold text-sm text-slate-800">24/7 Support</p>
+                    <p class="text-gray-500 text-xs">Our team is always ready to assist you on the road.</p>
+                </div>
+                <div class="bg-blue-50 rounded-2xl p-4 space-y-1">
+                    <i class="fa-solid fa-star text-brandDarkBlue text-lg"></i>
+                    <p class="font-bold text-sm text-slate-800">Rated & Reviewed</p>
+                    <p class="text-gray-500 text-xs">Honest ratings from real users after every trip.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── CORE VALUES ── -->
+    <div class="bg-gray-50 border-t border-gray-100 py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12 space-y-2">
+                <span class="text-brandDarkBlue font-bold tracking-widest text-xs uppercase">What Drives Us</span>
+                <h2 class="text-3xl font-extrabold text-slate-900">Our Core Values</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition space-y-4 group">
+                    <div class="w-12 h-12 bg-brandDarkBlue rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-handshake text-white text-lg"></i>
+                    </div>
+                    <h3 class="font-extrabold text-slate-900 text-lg">Trust</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">We build trust through transparency — with verified IDs, honest reviews, and clear pricing with zero hidden fees.</p>
+                </div>
+                <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition space-y-4 group">
+                    <div class="w-12 h-12 bg-brandRed rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-bolt text-white text-lg"></i>
+                    </div>
+                    <h3 class="font-extrabold text-slate-900 text-lg">Speed</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">From browsing to booking in minutes. We designed DriveNow to get you on the road as fast as possible.</p>
+                </div>
+                <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-md transition space-y-4 group">
+                    <div class="w-12 h-12 bg-blue-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-heart text-white text-lg"></i>
+                    </div>
+                    <h3 class="font-extrabold text-slate-900 text-lg">Community</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">DriveNow is a community of car owners and renters helping each other move forward — together.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── TEAM / CTA ── -->
+    <div class="max-w-7xl mx-auto px-6 py-20">
+        <div class="bg-brandDarkBlue rounded-[2.5rem] p-12 relative overflow-hidden">
+            <!-- Decorative circles -->
+            <div class="absolute -top-16 -right-16 w-64 h-64 bg-white/5 rounded-full"></div>
+            <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-brandRed/10 rounded-full"></div>
+
+            <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div class="space-y-5">
+                    <span class="text-brandBlue font-bold tracking-widest text-xs uppercase">Join the Movement</span>
+                    <h2 class="text-4xl font-extrabold text-white leading-tight">
+                        Ready to hit<br>the road with<br>
+                        <span class="text-brandRed">DriveNow?</span>
+                    </h2>
+                    <p class="text-blue-200 text-sm leading-relaxed max-w-sm">
+                        Whether you're renting your first car or listing yours, DriveNow makes the whole experience smooth, safe, and rewarding.
+                    </p>
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <!-- App Store Link -->
+                        <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" class="hover:opacity-90 transition">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" class="h-11">
+                        </a>
+                        <!-- Google Play Link -->
+                        <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" class="hover:opacity-90 transition">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" class="h-11">
+                        </a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white/10 rounded-2xl p-5 space-y-2 text-white">
+                        <i class="fa-solid fa-user-plus text-brandBlue text-xl"></i>
+                        <p class="font-bold text-sm">List Your Car</p>
+                        <p class="text-blue-200 text-xs">Earn extra income by renting out your vehicle when you're not using it.</p>
+                    </div>
+                    <div class="bg-white/10 rounded-2xl p-5 space-y-2 text-white">
+                        <i class="fa-solid fa-map-location-dot text-brandBlue text-xl"></i>
+                        <p class="font-bold text-sm">Rent a Car</p>
+                        <p class="text-blue-200 text-xs">Find a car near you and book it instantly — no paperwork needed.</p>
+                    </div>
+                    <div class="bg-white/10 rounded-2xl p-5 space-y-2 text-white col-span-2">
+                        <i class="fa-solid fa-comments text-brandBlue text-xl"></i>
+                        <p class="font-bold text-sm">Rate & Review</p>
+                        <p class="text-blue-200 text-xs">Share your experience after every trip to help the community grow stronger.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<script>
+    // Counter animation for stats
+    const counters = document.querySelectorAll('.counter');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const target = parseInt(el.dataset.target);
+                const suffix = target >= 1000 ? 'K+' : '+';
+                const displayTarget = target >= 1000 ? target / 1000 : target;
+                let current = 0;
+                const step = displayTarget / 60;
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= displayTarget) {
+                        el.textContent = displayTarget + suffix;
+                        clearInterval(timer);
+                    } else {
+                        el.textContent = Math.floor(current) + suffix;
+                    }
+                }, 20);
+                observer.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+    counters.forEach(c => observer.observe(c));
+</script>
+
+<!-- ════════════════════════════════════════
+     FOOTER DARK BAR
+════════════════════════════════════════ -->
+<footer class="bg-bgDark py-6 px-6">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+            <img src="logoo.png" alt="DriveNow Logo" class="h-8 w-8 object-contain">
+            <span class="text-lg font-extrabold text-white">DRIVE<span class="text-brandRed">NOW</span></span>
+        </div>
+        <p class="text-gray-500 text-xs">© 2025 DriveNow. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
